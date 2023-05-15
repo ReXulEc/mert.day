@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    background-color: #2A2A2A;
+    font-family: 'Inter', sans-serif;
+}
+
+p {
+    color: #FFFFFF;
+}
+
+.texts-07 {
+    color: #FFFFFF;
+    opacity: 0.7;
+}
+
+.texts-05 {
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.hover-underline-animation {
+	display: inline-block;
+	position: relative;
+	color: #f1f1f1;
+  }
+  
+  .hover-underline-animation::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(1);
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #f1f1f1;
+	transform-origin: bottom left;
+	transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+	transform: scaleX(0);
+	transform-origin: bottom right;
+  }
