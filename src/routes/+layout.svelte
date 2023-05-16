@@ -5,7 +5,7 @@
   </script>
 
 <div class="flex justify-center py-20 ">
-  <div class="w-4/12">
+  <div class="md:w-4/12 w-9/12">
     <Navbar />
     <slot />
   </div>

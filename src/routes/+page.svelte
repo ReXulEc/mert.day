@@ -1,15 +1,45 @@
 <script>
-	import memoji1 from '$lib/images/memoji1.png';
+	import Memoji from '../lib/components/Memoji.svelte';
 	import Underline from '../lib/components/Underline.svelte';
+	import OpenAnimeMobile from '../lib/images/projectmockups/openanime.png';
 
 	let projects = [
-{
+		{
 			'year': '2020 - present',
 			'title': 'OpenAnime',
-			'description': 'Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.',
-			'link': '/projects'
-		}
+			'description': 'OpenAnime is an open source anime platform that aims on community, security and speed. It provides some of the unique features that you will rarely see on an anime platform.',
+			'link': '/projects',
+			'image': OpenAnimeMobile,
+			'css': 'w-4/6 top-5'
+		},
+		/*
+		{
+			'year': '2021 - 2022 Q4',
+			'title': 'SettleCo',
+			'description': 'SettleCo is a tiny development company which located on Turkey, Izmir. We are a relatively small company that aims to grow by making new projects.',
+			'link': '/projects',
+			'image': OpenAnimeMacbook
+
+		},
+		{
+			'year': '2022 - 2022',
+			'title': 'Isolation',
+			'description': 'Isolation is a start page with some widgets to keep you focused.',
+			'link': '/projects',
+			'image': OpenAnimeMacbook
+
+		},
+		*/
 	]
+
+	let clickedMemojiCount = 0;
+
+	function easteregg() {
+		clickedMemojiCount++;
+		if (clickedMemojiCount == 20) {
+			clickedMemojiCount = 0;
+		}
+	}
 
 </script>
 
@@ -21,35 +51,31 @@
 <section>
 	<div class="flex flex-col pt-20 space-y-24">
 		<section class="space-y-5">
-			<div class="h-[5rem] w-[5rem] p-1 bg-[#808080]/5 rounded-full relative">
-				<img src={memoji1} alt="Mert Dogu" />
-				<div class="absolute flex justify-center right-0 bottom-0 bg-white rounded-full h-7 w-7 items-center">
-					<p class="text-[1.2rem]">🎉</p>
-				</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<div on:click={easteregg}>
+				<Memoji  />
 			</div>
 			<div class="space-y-3">
 				<p class="text-2xl font-medium">I'm a Front-end developer.</p>
-				<p class="texts-07 text-[1.1rem] font-normal">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+				<p class="texts-06 text-[1.1rem] font-normal">Hey there! I'm Mert, a front-end developer with a passion for creating beautiful and interactive web experiences. I love working with modern web technologies like React, Next, Svelte, and Vue, as well as using Node.js for server-side development.</p>
 				<Underline href="/projects" />
 			</div>
 		</section>
-		<div class="space-y-5">
+		<div class="space-y-6">
 			<p class="font-medium text-[1.1rem]">Selected Projects</p>
-			<div style="container">
 				{#each projects as projects}
 				<div class="flex flex-row justify-between items-center h-full">
-					<div class="h-full space-y-1 w-8/12">
+					<div class="h-full space-y-1.5 w-8/12">
 						<p class="texts-05 text-xs">{projects.year}</p>
 						<p class="text-xl">{projects.title}</p>
 						<p class="texts-07">{projects.description}</p>
 						<Underline href="{projects.link}" text='Try it out' />
 					</div>
-					<div class=" h-[10rem] aspect-square bg-[#808080]/5 rounded-2xl">
-						<img src="" alt="" />
+					<div class=" h-[10rem] aspect-square bg-[#808080]/5 rounded-2xl overflow-hidden relative flex justify-center">
+						<img class="absolute {projects.css}" src={projects.image} alt="" />
 					</div>
 				</div>
 				{/each}
-			</div>
 		</div>
 
 	</div>
