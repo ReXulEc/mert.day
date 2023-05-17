@@ -27,7 +27,7 @@ function keyemoji(){
 }
 setInterval(() => {
     keyemoji()
-}, 10000)
+}, 5000)
 
 </script>
 
@@ -44,10 +44,12 @@ setInterval(() => {
 <style>
     @keyframes fadein {
         0% {
+            scale: 0.95;
             opacity: 0;
         }
 
         100% {
+            scale: 1;
             opacity: 1;
         }
     }
