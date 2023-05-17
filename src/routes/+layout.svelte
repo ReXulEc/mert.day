@@ -4,9 +4,13 @@
 
   </script>
 
-<div class="flex justify-center py-20 ">
-  <div class="md:w-4/12 w-9/12">
+<div>
+  <div class="md:static sticky top-0 z-50">
     <Navbar />
+  </div>
+<div class="flex justify-center md:pb-20 pb-10">
+  <div class="md:w-8/12 lg:w-6/12 xl:w-5/12 2xl:w-4/12 w-9/12">
     <slot />
   </div>
+</div>
 </div>
