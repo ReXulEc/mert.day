@@ -1,8 +1,12 @@
 <script>
 	import Memoji from '../lib/components/Memoji.svelte';
 	import Underline from '../lib/components/Underline.svelte';
+	import Footer from '../lib/components/Footer.svelte';
 	import OpenAnimeMobile from '../lib/images/projects/openanime.png';
 	import SettleCoLogo from '../lib/images/projects/settleco_logo.png';
+
+	import Inbox from '../lib/images/inbox.png';
+	import { text } from 'svelte/internal';
 
 
 	let projects = [
@@ -18,7 +22,7 @@
 			'year': '2021 - 2022',
 			'title': 'SettleCo',
 			'description': 'Hi! We are a tiny development company with fully remote team working throughout Turkey, Izmir. Our main goal is to produce creative and innovative solutions.',
-			'link': 'https://openani.me',
+			'link': 'https://settleco.net',
 			'image': SettleCoLogo,
 			'css': 'w-1/2'
 		},
@@ -71,7 +75,7 @@
 				<Underline href="/projects" />
 			</div>
 		</section>
-		<div class="space-y-6">
+		<div class="space-y-9">
 			<p class="font-medium text-[1.1rem]">Selected Projects</p>
 				{#each projects as projects}
 				<div class="flex md:flex-row flex-col-reverse md:justify-between md:items-center h-full pb-4 md:pb-0">
@@ -86,7 +90,25 @@
 					</div>
 				</div>
 				{/each}
+				<Underline text="View all projects" href="/projects" arrowstyle={'right'} />
 		</div>
-
+		<div class="flex bg-[#808080]/5 w-full p-6 rounded-3xl justify-between">
+			<div class="space-y-1.5 flex flex-col w-3/4">
+				<p>Sign up to my newsletter</p>
+				<p class="texts-07">I regularly share my professional or personal updates on substack!</p>
+				<div class="flex space-x-2 w-1/2">
+					<input class="bg-[#4F4F4F] p-3 rounded-lg ring-0 placeholder-white/50" placeholder="email adress" type="email" name="" id="">
+					<button class="bg-[#4F4F4F] p-3 px-7 rounded-lg text-white">Subscribe</button>
+				</div>
+			</div>
+			<div class="md:block hidden flex justify-center items-center bg-[#808080]/5 aspect-square rounded-2xl">
+				<img class="h-7 w-7" src="{Inbox}" alt="">
+			</div>
+		</div>
+		<Footer />
 	</div>
 </section>
+
+<style>
+
+</style>
