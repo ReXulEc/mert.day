@@ -1,50 +1,13 @@
 <script>
 	import Memoji from '../lib/components/Memoji.svelte';
 	import Underline from '../lib/components/Underline.svelte';
+	import Projects from '../lib/components/Projects.svelte';
 	import Footer from '../lib/components/Footer.svelte';
-	import OpenAnimeMobile from '../lib/images/projects/openanime.png';
-	import SettleCoLogo from '../lib/images/projects/settleco_logo.png';
+
 
 	import Inbox from '../lib/images/inbox.png';
-	import { text } from 'svelte/internal';
 
 
-	let projects = [
-		{
-			'year': '2020 - present',
-			'title': 'OpenAnime',
-			'description': 'OpenAnime is an open source anime platform that aims on community, security and speed. It provides some of the unique features that you will rarely see on an anime platform.',
-			'link': 'https://openani.me',
-			'image': OpenAnimeMobile,
-			'css': 'w-4/6 top-5'
-		},
-		{
-			'year': '2021 - 2022',
-			'title': 'SettleCo',
-			'description': 'Hi! We are a tiny development company with fully remote team working throughout Turkey, Izmir. Our main goal is to produce creative and innovative solutions.',
-			'link': 'https://settleco.net',
-			'image': SettleCoLogo,
-			'css': 'w-1/2'
-		},
-		/*
-		{
-			'year': '2021 - 2022 Q4',
-			'title': 'SettleCo',
-			'description': 'SettleCo is a tiny development company which located on Turkey, Izmir. We are a relatively small company that aims to grow by making new projects.',
-			'link': '/projects',
-			'image': OpenAnimeMacbook
-
-		},
-		{
-			'year': '2022 - 2022',
-			'title': 'Isolation',
-			'description': 'Isolation is a start page with some widgets to keep you focused.',
-			'link': '/projects',
-			'image': OpenAnimeMacbook
-
-		},
-		*/
-	]
 
 	let clickedMemojiCount = 0;
 
@@ -77,31 +40,20 @@
 		</section>
 		<div class="space-y-9">
 			<p class="font-medium text-[1.1rem]">Selected Projects</p>
-				{#each projects as projects}
-				<div class="flex md:flex-row flex-col-reverse md:justify-between md:items-center h-full pb-4 md:pb-0">
-					<div class="h-full space-y-1.5 md:w-8/12 w-10/12">
-						<p class="texts-05 text-xs">{projects.year}</p>
-						<p class="text-xl">{projects.title}</p>
-						<p class="texts-07">{projects.description}</p>
-						<Underline href="{projects.link}" text='Try it out' />
-					</div>
-					<div class=" h-[10rem] md:w-auto w-[10rem] aspect-square bg-[#808080]/5 rounded-2xl overflow-hidden relative flex justify-center items-center mb-3 md:mb-0">
-						<img class="absolute {projects.css}" src={projects.image} alt="" />
-					</div>
-				</div>
-				{/each}
+			    <Projects r={2}/>
 				<Underline text="View all projects" href="/projects" arrowstyle={'right'} />
 		</div>
-		<div class="flex bg-[#808080]/5 w-full p-6 rounded-3xl justify-between">
-			<div class="space-y-1.5 flex flex-col w-3/4">
+
+		<div class="flex bg-[#808080]/5 w-full p-6 rounded-3xl gap-10 justify-between">
+			<div class="space-y-1.5 flex flex-col md:w-3/4">
 				<p>Sign up to my newsletter</p>
 				<p class="texts-07">I regularly share my professional or personal updates on substack!</p>
-				<div class="flex space-x-2 w-1/2">
-					<input class="bg-[#4F4F4F] p-3 rounded-lg ring-0 placeholder-white/50" placeholder="email adress" type="email" name="" id="">
-					<button class="bg-[#4F4F4F] p-3 px-7 rounded-lg text-white">Subscribe</button>
+				<div class="flex space-x-2">
+					<input class="bg-[#4F4F4F] p-3 w-full rounded-lg ring-0 placeholder-white/50 flex text-white" placeholder="email adress" type="email" name="" id="">
+					<button class="bg-[#4F4F4F] p-3 px-7 rounded-lg text-white flex">Subscribe</button>
 				</div>
 			</div>
-			<div class="md:block hidden flex justify-center items-center bg-[#808080]/5 aspect-square rounded-2xl">
+			<div class="md:flex hidden justify-center items-center bg-[#808080]/5 aspect-square rounded-2xl">
 				<img class="h-7 w-7" src="{Inbox}" alt="">
 			</div>
 		</div>
