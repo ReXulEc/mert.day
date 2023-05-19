@@ -44,8 +44,8 @@ setInterval(() => {
 <style>
     @keyframes fadein {
         0% {
-            scale: 0.95;
-            opacity: 0;
+            scale: 0.9;
+            opacity: 0.1;
         }
 
         100% {
@@ -55,7 +55,8 @@ setInterval(() => {
     }
 
     .imagesy {
-        animation: fadein 1s;
+        animation: fadein 0.9s;
+        animation-timing-function: ease;
     }
 
 </style>
