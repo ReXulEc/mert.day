@@ -1,6 +1,8 @@
 <script>
     import OpenAnimeMobile from "../images/projects/openanime.png"
     import SettleCoLogo from "../images/projects/settleco_logo.png"
+	import IsolationLogo from "../images/projects/isolation.png"
+
     import Underline from "../../lib/components/Underline.svelte";
     	let projects = [
 		{
@@ -10,6 +12,7 @@
 			'link': 'https://openani.me',
 			'image': OpenAnimeMobile,
 			'css': 'w-4/6 top-5'
+
 		},
 		{
 			'year': '2021 - 2022',
@@ -23,8 +26,10 @@
 			'year': '2022 - 2022',
 			'title': 'Isolation',
 			'description': 'Isolation is a start page with some widgets to keep you focused.',
-			'link': '/projects',
-			'image': SettleCoLogo
+			'link': '',
+			'image': IsolationLogo,
+			'css': 'w-3/4 rounded-2xl'
+
 
 		},
 	]
@@ -39,7 +44,9 @@
                 <p class="texts-05 text-xs">{projects.year}</p>
                 <p class="text-xl">{projects.title}</p>
                 <p class="texts-07">{projects.description}</p>
-                <Underline href="{projects.link}" text='Try it out' />
+				{#if projects.link != ''}
+                	<Underline href="{projects.link}" text='Try it out' />
+				{/if}
             </div>
             <div class=" h-[10rem] md:w-auto w-[10rem] aspect-square bg-[#808080]/5 rounded-2xl overflow-hidden relative flex justify-center items-center mb-3 md:mb-0">
                 <img class="absolute {projects.css}" src={projects.image} alt="" />
