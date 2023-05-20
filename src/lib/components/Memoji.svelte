@@ -1,8 +1,10 @@
 <script>
+    export let r = 0;
+
     import memoji1 from '$lib/images/memoji/memoji1.png';
-    import memoji2 from '$lib/images/memoji/memoji2.png';
-    import memoji3 from '$lib/images/memoji/memoji3.png';
-    import memoji4 from '$lib/images/memoji/memoji4.png';
+    import memoji2 from '$lib/images/memoji/memoji3.png';
+    import memoji3 from '$lib/images/memoji/memoji4.png';
+    import memoji4 from '$lib/images/memoji/memoji2.png';
     import memoji5 from '$lib/images/memoji/memoji5.png';
     import memoji6 from '$lib/images/memoji/memoji6.png';
 
@@ -16,7 +18,9 @@
     memoji6
 ];
 
-let keycount = 0;
+
+
+let keycount = r;
 
 function keyemoji(){
     if (keycount == 5){
