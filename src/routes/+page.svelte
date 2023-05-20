@@ -7,17 +7,6 @@
 
 	import Inbox from '../lib/images/inbox.png';
 
-
-
-	let clickedMemojiCount = 0;
-
-	function easteregg() {
-		clickedMemojiCount++;
-		if (clickedMemojiCount == 20) {
-			clickedMemojiCount = 0;
-		}
-	}
-
 </script>
 
 <svelte:head>
@@ -26,16 +15,16 @@
 </svelte:head>
 
 <section>
-	<div class="flex flex-col space-y-24 pt-5">
+	<div class="flex flex-col space-y-24">
 		<section class="space-y-5">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div on:click={easteregg}>
+			<div>
 				<Memoji  />
 			</div>
 			<div class="space-y-3">
 				<p class="text-2xl font-medium">I'm a Front-end developer.</p>
 				<p class="texts-06 text-[1.1rem] font-normal">Hey there! I'm Mert, a front-end developer with a passion for creating beautiful and interactive web experiences. I love working with modern web technologies like React, Next, Svelte, and Vue, as well as using Node.js for server-side development.</p>
-				<Underline href="/projects" />
+				<Underline href="/about" />
 			</div>
 		</section>
 		<div class="space-y-9">
