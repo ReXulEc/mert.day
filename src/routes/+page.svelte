@@ -2,6 +2,7 @@
 	import Memoji from '../lib/components/Memoji.svelte';
 	import Underline from '../lib/components/Underline.svelte';
 	import Projects from '../lib/components/Projects.svelte';
+	import Newsletter from '../lib/components/Newsletter.svelte';
 	import Footer from '../lib/components/Footer.svelte';
 
 
@@ -32,20 +33,7 @@
 			    <Projects r={2}/>
 				<Underline text="View all projects" href="/projects" arrowstyle={'right'} />
 		</div>
-
-		<div class="flex bg-[#808080]/5 w-full p-6 rounded-3xl gap-10 justify-between">
-			<div class="space-y-1.5 flex flex-col md:w-3/4">
-				<p>Sign up to my newsletter</p>
-				<p class="texts-07">I regularly share my professional or personal updates on substack!</p>
-				<div class="flex space-x-2">
-					<input class="bg-[#4F4F4F] p-3 w-full rounded-lg ring-0 placeholder-white/50 flex text-white" placeholder="email adress" type="email" name="" id="">
-					<button class="bg-[#4F4F4F] p-3 px-7 rounded-lg text-white flex">Subscribe</button>
-				</div>
-			</div>
-			<div class="md:flex hidden justify-center items-center bg-[#808080]/5 aspect-square rounded-2xl">
-				<img class="h-7 w-7" src="{Inbox}" alt="">
-			</div>
-		</div>
+		<Newsletter />
 		<Footer />
 	</div>
 </section>
