@@ -9,7 +9,7 @@
     <Navbar />
   </div>
 <div class="flex justify-center md:pb-20 pb-10">
-  <div class="md:w-9/12 lg:w-6/12 xl:w-5/12 2xl:w-4/12 w-10/12">
+  <div class="md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12 w-10/12">
       <slot />
   </div>
 </div>
