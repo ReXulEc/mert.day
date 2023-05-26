@@ -3,7 +3,7 @@
 
 
 <div class="flex w-full justify-center text-lg md:py-16 py-5 md:bg-black/0 bg-[#2A2A2A]">
-    <div class="flex flex-row justify-between md:w-9/12 lg:w-6/12 xl:w-5/12 2xl:w-4/12 w-10/12  ">
+    <div class="flex flex-row justify-between md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12 w-10/12 ">
         <a href="/" class="md:visible invisible text-white">Mert Dogu</a>
         <div class=" space-x-6 md:flex hidden">
           <a href='/about' class="texts-05">About</a>
