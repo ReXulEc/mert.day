@@ -25,14 +25,12 @@
 			},
 			body: JSON.stringify({ email })
 		})
-			.then(async (response) => {
-				const message = await response.text();
-				const isSuccess = response.status === 200;
-
-				useToast(isSuccess ? '👋' : '❌', message);
+			.then(res => res.json())
+			.then((data) => {
+				useToast(data.success ? '👋' : '❌', data.message);
 			})
 			.catch(() => {
-				useToast('❌', 'An error occurred');
+				useToast('❌', 'You are being rate limited. Please try again later.');
 			});
 	}
 </script>
