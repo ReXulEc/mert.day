@@ -1,17 +1,24 @@
 <script>
-	import { fade } from 'svelte/transition';
+	/**
+	 * @type {string}
+	 */
+	export let emoji;
 
-	export let data = {
-		emoji: '',
-		message: ''
-	};
+	/**
+	 * @type {string}
+	 */
+	export let message;
+
+	const originalClassList = 'p-3 px-4 bg-white/10 rounded-xl flex items-center space-x-2.5';
+
+	if ($$restProps.class) {
+		$$restProps.class += ` ${originalClassList}`;
+	} else {
+		$$restProps.class = originalClassList;
+	}
 </script>
 
-<div
-	in:fade={{ delay: 250, duration: 300 }}
-	out:fade={{ delay: 250, duration: 300 }}
-	class="p-3 px-6 bg-white/10 rounded-xl flex items-center space-x-2"
->
-	<p class="text-xl">{data.emoji}</p>
-	<p class="text-white text-md">{data.message}</p>
+<div {...$$restProps}>
+	<p class="text-lg">{emoji} |</p>
+	<p class="text-white text-md">{message}</p>
 </div>

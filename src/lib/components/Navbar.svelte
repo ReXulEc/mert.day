@@ -1,21 +1,120 @@
 <script>
+	import { fly } from 'svelte/transition';
+
+	let isNavOpen = false;
+
+	const items = [
+		{
+			name: 'About',
+			href: '/about'
+		},
+		{
+			name: 'Projects',
+			href: '/projects'
+		},
+		{
+			name: 'Contact',
+			href: '/contact'
+		}
+	];
+
+	const handleNav = () => {
+		isNavOpen = !isNavOpen;
+
+		if (isNavOpen) {
+			document.body.classList.add('overflow-hidden');
+		} else {
+			document.body.classList.remove('overflow-hidden');
+		}
+	};
 </script>
 
+<nav
+	class="flex w-full justify-center text-lg md:py-16 md:bg-black/0 bg-[#2A2A2A]"
+>
+	<div
+		class="flex justify-between items-center w-full p-4 md:p-0 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12"
+	>
+		<a href="/" class="text-white z-[9999]">Mert Dogu</a>
+		<div class="space-x-6 md:flex hidden">
+			{#each items as item}
+				<a href={item.href} class="texts-05">{item.name}</a>
+			{/each}
+		</div>
 
-<div class="flex w-full justify-center text-lg md:py-16 py-5 md:bg-black/0 bg-[#2A2A2A]">
-    <div class="flex flex-row justify-between md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12 w-10/12 ">
-        <a href="/" class="md:visible invisible text-white">Mert Dogu</a>
-        <div class=" space-x-6 md:flex hidden">
-          <a href='/about' class="texts-05">About</a>
-            <a href='/projects' class="texts-05">Projects</a>
-            <a class="texts-05">Contact</a>
-        </div>
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<svg
+			class="hamburger md:hidden h-10 cursor-pointer transition-[transform] duration-[400ms] select-none z-[9999]"
+			viewBox="0 0 100 100"
+			aria-expanded={isNavOpen}
+			on:click={handleNav}
+		>
+			<path
+				class="line top fill-none transition-[stroke-dasharray,stroke-dashoffset] duration-[400ms] stroke-[5.5]"
+				d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013"
+			/>
+			<path
+				class="line middle fill-none transition-[stroke-dasharray,stroke-dashoffset] duration-[400ms] stroke-[5.5]"
+				d="m 70,50 h -40"
+			/>
+			<path
+				class="line bottom fill-none transition-[stroke-dasharray,stroke-dashoffset] duration-[400ms] stroke-[5.5]"
+				d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40"
+			/>
+		</svg>
+	</div>
+</nav>
 
+{#if isNavOpen}
+	<div
+		class="flex flex-col items-center justify-center w-full h-screen text-2xl text-white bg-[#2A2A2A] absolute top-0 left-0 z-10 px-4 space-y-3"
+		in:fly={{ y: 100, duration: 400 }}
+		out:fly={{ y: 100, duration: 400 }}
+	>
+		{#each items as item}
+			<a
+				type="button"
+				role="button"
+				href={item.href}
+				class="py-3 text-center w-full bg-[#313131] rounded-md"
+				on:click={handleNav}
+				in:fly={{ y: 100, duration: 400 }}
+				out:fly={{ y: 100, duration: 400 }}
+			>
+				{item.name}
+			</a>
+		{/each}
+	</div>
+{/if}
 
-          <svg class="flex md:hidden h-8 text-white/80" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" fill-rule="evenodd"></path>
-          </svg>
-    </div>
-</div>
+<style>
+	.hamburger[aria-expanded='true'] {
+		transform: rotate(45deg);
+	}
 
+	.line {
+		transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+		stroke: rgb(255 255 255 / 0.8);
+		stroke-linecap: round;
+	}
 
+	.hamburger .top {
+		stroke-dasharray: 40 82;
+	}
+	.hamburger .middle {
+		stroke-dasharray: 40 111;
+	}
+	.hamburger .bottom {
+		stroke-dasharray: 40 161;
+	}
+	.hamburger[aria-expanded='true'] .top {
+		stroke-dasharray: 17 82;
+		stroke-dashoffset: -62px;
+	}
+	.hamburger[aria-expanded='true'] .middle {
+		stroke-dashoffset: 23px;
+	}
+	.hamburger[aria-expanded='true'] .bottom {
+		stroke-dashoffset: -83px;
+	}
+</style>
