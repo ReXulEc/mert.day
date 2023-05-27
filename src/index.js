@@ -28,24 +28,22 @@ app.use(cors({ origin: '*' }));
 app.post('/mail', apiLimiter, async (req, res) => {
   const { email } = req.body;
 
-
-
   try {
     Mail.findOne({ 'email': email }).then(function (mail) {
         console.log(mail);
         if (mail) {
-            console.log('Mail zaten kayıtlı');
-            res.status(200).send('Mail zaten kayıtlı');
+            console.log('[USER ERROR] ' + mail.email + ' already exists!');
+            res.status(200).json({success: false, message: 'This email is already registered.'});
         } else {
             const mail = new Mail({ email });
-            mail.save();
-            console.log('Mail kaydedildi:', mail);
-            res.status(200).send('Mail kaydedildi');
+            //mail.save();
+            console.log('[SUCCESS] New user:', mail.email);
+            res.status(200).json({success: true, message: 'Thanks for signing up! You can always unsubscribe by clicking the link at the bottom of our emails.'});
         }
     });
   } catch (err) {
-    console.error('Mail kaydedilemedi:', err);
-    res.status(500).send('Mail kaydedilemedi');
+    console.error('[INVALID ERROR]', err);
+    res.status(400).json({success: false, message: 'An invalid error occurred. Please try again later.'});
   }
 });
 
