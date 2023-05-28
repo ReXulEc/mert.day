@@ -30,7 +30,6 @@ app.use(cors({
   origin: whitelist,
 }));
 
-app.use(cors(corsOptions))
 
 app.post('/mail', apiLimiter, async (req, res) => {
   const { email } = req.body;
