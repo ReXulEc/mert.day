@@ -23,7 +23,14 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors({ origin: '*' }));
+
+var whitelist = ['https://www.mert.day/', 'https://mert.day/']
+
+app.use(cors({
+  origin: whitelist,
+}));
+
+app.use(cors(corsOptions))
 
 app.post('/mail', apiLimiter, async (req, res) => {
   const { email } = req.body;
@@ -47,6 +54,6 @@ app.post('/mail', apiLimiter, async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('[SERVER] port 3000');
+app.listen(4000, () => {
+  console.log('[SERVER] port 4000');
 });
