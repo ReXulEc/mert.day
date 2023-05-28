@@ -24,11 +24,26 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var whitelist = ['https://www.mert.day/', 'https://mert.day/']
+// Middleware, gelen isteğin IP adresini kontrol eder
+const checkIPMiddleware = (req, res, next) => {
+  // Sunucunun IP adresini al
+  const serverIP = req.connection.localAddress;
 
-app.use(cors({
-  origin: whitelist,
-}));
+  // Gelen isteğin IP adresini al
+  const clientIP = req.ip;
+
+  // IP adreslerini karşılaştır
+  if (serverIP === clientIP) {
+    // Eşleşme durumunda, isteğe onay ver
+    next();
+  } else {
+    // Eşleşme olmadığında, hata döndür
+    res.status(403).send('Forbidden');
+  }
+};
+
+// Middleware'i kullan
+app.use(checkIPMiddleware);
 
 
 app.post('/mail', apiLimiter, async (req, res) => {
