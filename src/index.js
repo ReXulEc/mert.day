@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(cors({ origin: '*' }));
 
 
-app.post('/mail', async (req, res) => {
+app.post('/mail', apiLimiter, async (req, res) => {
   const { email } = req.body;
       try {
         Mail.findOne({ 'email': email }).then(function (mail) {
