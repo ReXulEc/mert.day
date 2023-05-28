@@ -5,67 +5,42 @@ const cors = require('cors');
 const apiLimiter = require('./limiter.js');
 require('dotenv').config()
 
-
-// MongoDB'ye bağlan
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
 
 const mailSchema = new mongoose.Schema({
   email: String,
 });
 
 const Mail = mongoose.model('mails', mailSchema);
-
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors({ origin: '*' }));
 
-// Middleware, gelen isteğin IP adresini kontrol eder
-const checkIPMiddleware = (req, res, next) => {
-  // Sunucunun IP adresini al
-  const serverIP = req.connection.localAddress;
 
-  // Gelen isteğin IP adresini al
-  const clientIP = req.ip;
-
-  // IP adreslerini karşılaştır
-  if (serverIP === clientIP) {
-    // Eşleşme durumunda, isteğe onay ver
-    next();
-  } else {
-    // Eşleşme olmadığında, hata döndür
-    res.status(403).send('Forbidden');
-  }
-};
-
-// Middleware'i kullan
-app.use(checkIPMiddleware);
-
-app.post('/mail', apiLimiter, async (req, res) => {
+app.post('/mail', async (req, res) => {
   const { email } = req.body;
-
-  try {
-    Mail.findOne({ 'email': email }).then(function (mail) {
-        console.log(mail);
-        if (mail) {
-            console.log('[USER ERROR] ' + mail.email + ' already exists!');
-            res.status(200).json({success: false, message: 'This email is already registered.'});
-        } else {
-            const mail = new Mail({ email });
-            //mail.save();
-            console.log('[SUCCESS] New user:', mail.email);
-            res.status(200).json({success: true, message: 'Thanks for signing up! You can always unsubscribe by clicking the link at the bottom of our emails.'});
-        }
-    });
-  } catch (err) {
-    console.error('[INVALID ERROR]', err);
-    res.status(400).json({success: false, message: 'An invalid error occurred. Please try again later.'});
-  }
+      try {
+        Mail.findOne({ 'email': email }).then(function (mail) {
+            console.log(mail);
+            if (mail) {
+                console.log('[USER ERROR] ' + mail.email + ' already exists!');
+                res.status(200).json({success: false, message: 'This email is already registered.'});
+            } else {
+                const mail = new Mail({ email });
+                mail.save();
+                console.log('[SUCCESS] New user:', mail.email);
+                res.status(200).json({success: true, message: 'Thanks for signing up! You can always unsubscribe by clicking the link at the bottom of our emails.'});
+            }
+        });
+      } catch (err) {
+        console.error('[INVALID ERROR]', err);
+        res.status(400).json({success: false, message: 'An invalid error occurred. Please try again later.'});
+      }
 });
 
 app.listen(4000, () => {
