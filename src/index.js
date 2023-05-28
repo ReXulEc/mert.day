@@ -23,6 +23,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors({ origin: '*' }));
 
 // Middleware, gelen isteğin IP adresini kontrol eder
 const checkIPMiddleware = (req, res, next) => {
@@ -44,7 +45,6 @@ const checkIPMiddleware = (req, res, next) => {
 
 // Middleware'i kullan
 app.use(checkIPMiddleware);
-
 
 app.post('/mail', apiLimiter, async (req, res) => {
   const { email } = req.body;
