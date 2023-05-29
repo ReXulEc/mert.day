@@ -1,5 +1,6 @@
 <script>
 	import { fly } from 'svelte/transition';
+	import { navigating } from '$app/stores';
 
 	let isNavOpen = false;
 
@@ -27,18 +28,26 @@
 			document.body.classList.remove('overflow-hidden');
 		}
 	};
+
+	$: if($navigating) {
+		new Audio("/switch-page.mp3").play();
+ 	}
 </script>
 
 <nav
 	class="flex w-full justify-center text-lg md:py-16 md:bg-black/0 bg-[#2A2A2A]"
 >
 	<div
-		class="flex justify-between items-center w-full p-4 md:p-0 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12"
+		class="flex justify-between items-center w-10/12 py-4 md:p-0 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12"
 	>
-		<a href="/" class="text-white z-[9999]">Mert Dogu</a>
+	{#if isNavOpen}
+		<a on:click={handleNav} data-sveltekit-prefetch href="/" class="text-white z-[9999]">Mert Dogu</a>
+	{:else}
+		<a data-sveltekit-prefetch href="/" class="text-white">Mert Dogu</a>
+	{/if}
 		<div class="space-x-6 md:flex hidden">
 			{#each items as item}
-				<a href={item.href} class="texts-05">{item.name}</a>
+				<a data-sveltekit-prefetch href={item.href} class="texts-05">{item.name}</a>
 			{/each}
 		</div>
 
@@ -67,7 +76,7 @@
 
 {#if isNavOpen}
 	<div
-		class="flex flex-col items-center justify-center w-full h-screen text-2xl text-white bg-[#2A2A2A] absolute top-0 left-0 z-10 px-4 space-y-3"
+		class="flex flex-col items-center justify-center w-full h-screen text-2xl text-white bg-[#2A2A2A] absolute top-0 left-0 z-10  space-y-3"
 		in:fly={{ y: 100, duration: 400 }}
 		out:fly={{ y: 100, duration: 400 }}
 	>
@@ -76,7 +85,7 @@
 				type="button"
 				role="button"
 				href={item.href}
-				class="py-3 text-center w-full bg-[#313131] rounded-md"
+				class="py-3 rounded-md w-10/12 font-medium"
 				on:click={handleNav}
 				in:fly={{ y: 100, duration: 400 }}
 				out:fly={{ y: 100, duration: 400 }}
