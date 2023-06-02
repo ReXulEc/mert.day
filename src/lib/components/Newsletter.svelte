@@ -1,6 +1,7 @@
 <script>
 	import Inbox from '../images/inbox.png';
 	import useToast from '../hooks/useToast';
+	import { onMount } from 'svelte';
 
 	/**
 	 * @type {'production'|'development'}
@@ -8,7 +9,7 @@
 	const mode = import.meta.env.MODE;
 
 	const getAPIURL = () => {
-		return mode === 'development' ? 'http://localhost:3000' : 'https://api.mert.day';
+		return mode === 'development' ? 'http://localhost:4000' : 'https://api.mert.day';
 	};
 
 	/**
@@ -17,7 +18,7 @@
 	let email = '';
 
 	async function sendMail() {
-		fetch(`${getAPIURL()}/mail`, {
+		fetch(`${getAPIURL()}/sendMail`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -29,8 +30,8 @@
 			.then((data) => {
 				useToast(data.success ? '👋' : '❌', data.message);
 			})
-			.catch(() => {
-				useToast('❌', 'You are being rate limited. Please try again later.');
+			.catch((err) => {
+				useToast('❌', err);
 			});
 	}
 </script>
