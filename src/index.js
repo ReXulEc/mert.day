@@ -15,7 +15,7 @@ const mailSchema = new mongoose.Schema({
   email: String,
 });
 
-const Mail = mongoose.model('maillist', mailSchema);
+const Mail = mongoose.model('users', mailSchema);
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,10 +27,10 @@ function generateAccessToken(data) {
 }
 
 app.get('/', (req, res) => {
-  res.status(200).json({success: true, message: 'Welcome to the API!'});
+  res.status(200).json({status: 'ok'});
 });
 
-app.post('/mail', apiLimiter, async (req, res) => {
+app.post('/sendMail', apiLimiter, async (req, res) => {
   const { email } = req.body;
       try {
         Mail.findOne({ 'email': email }).then(function (mail) {
@@ -41,6 +41,7 @@ app.post('/mail', apiLimiter, async (req, res) => {
             } else {
                 res.status(200).json({success: true, message: 'Confirm your email address to subscribe.'});
                 console.log(generateAccessToken({ email: email }))
+
             }
         });
       } catch (err) {
@@ -63,10 +64,11 @@ app.get('/confirm/:auth', apiLimiter, async (req, res) => {
                 console.log('[USER ERROR] ' + emailconfirm + ' already exists!');
                 res.status(200).json({success: false, message: 'This email is already registered.'});
             } else {
-                const mail = new Mail({ emailconfirm });
+                const mail = new Mail({ email: emailconfirm });
                 mail.save();
                 console.log('[SUCCESS] New user:', emailconfirm);
                 res.status(200).json({success: true, message: 'Thanks for signing up! You can always unsubscribe by clicking the link at the bottom of our emails.'});
+
             }
         });
       } catch (err) {
