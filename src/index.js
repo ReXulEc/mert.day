@@ -5,6 +5,18 @@ const cors = require('cors');
 const apiLimiter = require('./limiter.js');
 require('dotenv').config()
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
+
+  const transporter = nodemailer.createTransport({
+    host: process.env.MAIL_HOST,
+    port: 465,
+    secure: true, // Use SSL/TLS
+    auth: {
+      user: process.env.MAIL_USER, // Your email address
+      pass: process.env.MAIL_PASS, // Your email password
+    },
+  });
+
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
@@ -26,6 +38,24 @@ function generateAccessToken(data) {
   return jwt.sign(data, process.env.TOKEN_SECRET, { expiresIn: '168h' });
 }
 
+let mailOptions = {
+  from: process.env.MAIL_USER, // Sender email address
+  to: undefined, // Recipient email address
+  subject: undefined, // Email subject
+  html: undefined,
+};
+
+async function sendMail(mailOptions) {
+  try {
+    // Send the email
+    const info = await transporter.sendMail(mailOptions);
+
+    console.log('Email sent:', info.messageId);
+  } catch (error) {
+    console.error('Error occurred while sending email:', error);
+  }
+}
+
 app.get('/', (req, res) => {
   res.status(200).json({status: 'ok'});
 });
@@ -40,9 +70,20 @@ app.post('/sendMail', apiLimiter, async (req, res) => {
                 res.status(200).json({success: false, message: 'This email is already registered.'});
             } else {
                 // mail send code here
-                
-                res.status(200).json({success: true, message: 'Confirm your email address to subscribe.'});
-                console.log(generateAccessToken({ email: email }))
+                mailOptions = {
+                  from: process.env.MAIL_USER, // Sender email address
+                  to: email, // Recipient email address
+                  subject: 'Confirm your Mail', // Email subject
+                  html: `<p>Hi!</p>
+                  <p>Thank you very much for signing up for my news list. From now on, I will send you a private e-mail about the events related to the projects I have done. But don't worry, you can unsubscribe from the mailing list whenever you want.</p>
+                  <p>You can confirm your e-mail address by clicking <a href="https://api.mert.day/confirm/${generateAccessToken({ email: email })}">here</a>!</p>
+                  <p>If you didn't send this request, you can act as if you didn't see this e-mail.</p>
+                  <p>Sincerely,</br>- Mert Dogu</p>`, // HTML body (optional)
+                };
+                sendMail(mailOptions).then(() => {
+                  res.status(200).json({success: true, message: 'Confirm your email address to subscribe.'});
+                  console.log('[SUCCESS] New user:', email);
+                });
 
             }
         });
