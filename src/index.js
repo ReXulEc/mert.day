@@ -39,6 +39,8 @@ app.post('/sendMail', apiLimiter, async (req, res) => {
                 console.log('[USER ERROR] ' + mail.email + ' already exists!');
                 res.status(200).json({success: false, message: 'This email is already registered.'});
             } else {
+                // mail send code here
+                
                 res.status(200).json({success: true, message: 'Confirm your email address to subscribe.'});
                 console.log(generateAccessToken({ email: email }))
 
@@ -62,7 +64,7 @@ app.get('/confirm/:auth', apiLimiter, async (req, res) => {
             console.log(mail);
             if (mail) {
                 console.log('[USER ERROR] ' + emailconfirm + ' already exists!');
-                res.status(200).json({success: false, message: 'This email is already registered.'});
+                res.status(200).json({success: false, message: 'This email is already confirmed.'});
             } else {
                 const mail = new Mail({ email: emailconfirm });
                 mail.save();
