@@ -1,6 +1,7 @@
 <script>
 	import Inbox from '../images/inbox.png';
 	import useToast from '../hooks/useToast';
+	import { page } from '$app/stores'
 	import { onMount } from 'svelte';
 
 	/**
@@ -34,6 +35,13 @@
 				useToast('❌', err);
 			});
 	}
+
+	onMount(() => {
+		if ($page.url.searchParams.get('mailconfirm') === 'true') {
+			useToast('👋', 'You have successfully subscribed to my newsletter!');
+		}
+	});
+
 </script>
 
 <div class="flex bg-[#808080]/5 w-full p-6 rounded-3xl gap-10 justify-between">
