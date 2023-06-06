@@ -24,6 +24,12 @@
 	}, 5000);
 </script>
 
+<svelte:head>
+  {#each emojis as image}
+    <link rel="preload" as="image" href={image} />
+  {/each}
+</svelte:head>
+
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	on:click={keyemoji}
