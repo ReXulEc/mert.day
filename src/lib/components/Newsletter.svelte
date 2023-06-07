@@ -14,7 +14,7 @@
 	const mode = import.meta.env.MODE;
 
 	const getAPIURL = () => {
-		return mode === 'development' ? 'https://api.mert.day' : 'https://api.mert.day';
+		return mode === 'development' ? 'http://localhost:4000' : 'https://api.mert.day';
 	};
 
 	/**
