@@ -4,12 +4,10 @@
 	import Projects from '../lib/components/Projects.svelte';
 	import Newsletter from '../lib/components/Newsletter.svelte';
 	import Footer from '../lib/components/Footer.svelte';
+	import Meta from '../lib/components/Meta.svelte';
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<Meta title="/home" />
 
 <section>
 	<div class="flex flex-col space-y-24">

@@ -1,6 +1,9 @@
 <script>
 	import Memoji from '../../lib/components/Memoji.svelte';
+	import Meta from '../../lib/components/Meta.svelte';
 </script>
+
+<Meta title="/about" />
 
 <section class="space-y-5">
 	<div>
