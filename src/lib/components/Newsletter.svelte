@@ -1,4 +1,5 @@
 <script>
+	import { confetti } from '@neoconfetti/svelte'
 	import Inbox from '../images/inbox.png';
 	import useToast from '../hooks/useToast';
 	import { page } from '$app/stores';
@@ -7,6 +8,7 @@
 	let visStyle = 'opacity-0 blur-lg'
 	let blurStyle = 'blur-0'
 	let buttonDisabled = false;
+	let success = false
 
 	/**
 	 * @type {'production'|'development'}
@@ -46,12 +48,10 @@
 			});
 	}
 
-	onMount(() => {
-		if ($page.url.searchParams.get('mailconfirm') === 'true') {
-			useToast('👋', 'You have successfully subscribed to my newsletter!');
-		}
-	});
+
+
 </script>
+
 
 <div class="relative bg-[#808080]/5 p-6 rounded-3xl">
 	<div class="flex h-full w-full items-center justify-center">

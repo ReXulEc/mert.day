@@ -1,6 +1,11 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import { navigating } from '$app/stores';
+	import { confetti } from '@neoconfetti/svelte'
+	import useToast from '../hooks/useToast';
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+
 
 	let isNavOpen = false;
 
@@ -32,7 +37,23 @@
 	$: if($navigating) {
 		new Audio("/switch-page.mp3").play();
  	}
+
+	let success = false;
+
+	 onMount(() => {
+		if ($page.url.searchParams.get('mailconfirm') === 'true') {
+			success = true;
+			useToast('👋', 'You have successfully subscribed to my newsletter!');
+		}
+	});
 </script>
+
+
+<div class="confetticlass">
+	{#if success===true}
+		<div class="confettioverlay" use:confetti={{ stageHeight: document.body.scrollHeight, colors: ['#fc3232', '#3239fc', '#32fcde', '#f2fc32'] }}  />
+	{/if}
+</div>
 
 <nav
 	class="flex w-full justify-center text-lg md:py-16 md:bg-black/0 bg-[#2A2A2A]"
@@ -126,4 +147,10 @@
 	.hamburger[aria-expanded='true'] .bottom {
 		stroke-dashoffset: -83px;
 	}
+
+	.confetticlass {
+		display: flex;
+		justify-content: center;
+	}
+
 </style>

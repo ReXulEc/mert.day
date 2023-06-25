@@ -6,7 +6,7 @@
 	 import PageTransition from '$lib/components/PageTransition.svelte';
 </script>
 
-<div>
+<div class="relative">
 	<div class="md:static sticky top-0 z-50">
 		<Navbar />
 	</div>
