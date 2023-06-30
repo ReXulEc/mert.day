@@ -110,7 +110,7 @@ app.get('/confirm/:auth', apiLimiter, async (req, res) => {
                 const mail = new Mail({ email: emailconfirm });
                 mail.save();
                 console.log('[SUCCESS] New user:', emailconfirm);
-                res.status(200).json({success: true, message: 'Thanks for signing up! You can always unsubscribe by clicking the link at the bottom of our emails.'});
+                res.redirect("https://mert.day?mailconfirm=true")
 
             }
         });
