@@ -2,6 +2,7 @@
 	export let href;
 	export let text = 'Take me to the magic land';
 	export let arrowstyle = 'default';
+	import { sound } from 'svelte-sound';
 
 	let arrow = {
 		default: 'M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25',

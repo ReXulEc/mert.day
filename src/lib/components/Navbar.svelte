@@ -5,6 +5,7 @@
 	import useToast from '../hooks/useToast';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { sound } from 'svelte-sound';
 
 
 	let isNavOpen = false;
@@ -62,13 +63,16 @@
 		class="flex justify-between items-center w-10/12 py-4 md:p-0 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12"
 	>
 	{#if isNavOpen}
-		<a on:click={handleNav} data-sveltekit-prefetch href="/" class="text-white z-[9999]">Mert Dogu</a>
+		<a  on:click={handleNav} data-sveltekit-prefetch href="/" class="text-white z-[9999]">Mert Dogu</a>
 	{:else}
-		<a data-sveltekit-prefetch href="/" class="text-white">Mert Dogu</a>
+		<a  data-sveltekit-prefetch href="/" class="text-white">Mert Dogu</a>
 	{/if}
 		<div class="space-x-6 md:flex hidden">
 			{#each items as item}
-				<a data-sveltekit-prefetch href={item.href} class="texts-05">{item.name}</a>
+				<a use:sound={{
+					src: "/hover-button.mp3",
+					events: ["mouseover", "mouseout"]
+					}} data-sveltekit-prefetch href={item.href} class="texts-05">{item.name}</a>
 			{/each}
 		</div>
 
@@ -110,6 +114,7 @@
 				on:click={handleNav}
 				in:fly={{ y: 100, duration: 400 }}
 				out:fly={{ y: 100, duration: 400 }}
+
 			>
 				{item.name}
 			</a>
