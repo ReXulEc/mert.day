@@ -6,7 +6,11 @@
 	 import PageTransition from '$lib/components/PageTransition.svelte';
 </script>
 
-<div class="relative">
+<svelte:head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</svelte:head>
+
+<div class="relative" id="content">
 	<div class="md:static sticky top-0 z-50">
 		<Navbar />
 	</div>
