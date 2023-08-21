@@ -2,7 +2,7 @@
 	import Memoji from '../lib/components/Memoji.svelte';
 	import Underline from '../lib/components/Underline.svelte';
 	import Projects from '../lib/components/Projects.svelte';
-	import Newsletter from '../lib/components/Newsletter.svelte';
+	import Education from '../lib/components/Education.svelte';
 	import Footer from '../lib/components/Footer.svelte';
 	import Meta from '../lib/components/Meta.svelte';
 </script>
@@ -30,7 +30,10 @@
 			<Projects r={2} />
 			<Underline text="View all projects" href="/projects" arrowstyle={'right'} />
 		</div>
-		<Newsletter />
+		<div class="space-y-9">
+			<p class="font-medium text-[1.1rem]">My Education</p>
+			<Education />
+		</div>
 		<Footer />
 	</div>
 </section>

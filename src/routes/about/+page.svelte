@@ -35,7 +35,7 @@
 			If you'd like to <b>connect with me</b> or <b>discuss potential collaborations</b>, feel free
 			to reach out. I am always eager to engage with fellow professionals, clients, and enthusiasts
 			in the web development realm. You can contact me through email at
-			<a href="mailto:bussiness@mert.day"><b>bussiness@mert.day</b></a>
+			<a href="mailto:business@mert.day"><b>business@mert.day</b></a>
 			or connect with me on professional platforms such as
 			<a href="https://www.linkedin.com/in/mertdogu/"><b>LinkedIn</b></a>. I look forward to hearing
 			from you and exploring opportunities to create remarkable web experiences together.
