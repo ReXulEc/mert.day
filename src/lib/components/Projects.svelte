@@ -1,39 +1,8 @@
 <script>
-	import OpenAnimeMobile from '../images/projects/openanime.png';
-	import SettleCoLogo from '../images/projects/settleco_logo.png';
-	import IsolationLogo from '../images/projects/isolation.png';
-
+	import CONFIG from "../config.js"
 	import Underline from '../../lib/components/Underline.svelte';
-	let projects = [
-		{
-			year: '2020 - present',
-			title: 'OpenAnime',
-			description:
-				'OpenAnime is an open source anime platform that aims on community, security and speed. It provides some of the unique features that you will rarely see on an anime platform.',
-			link: 'https://openani.me',
-			image: OpenAnimeMobile,
-			css: 'w-4/6 top-5'
-		},
-		{
-			year: '2021 - 2022',
-			title: 'SettleCo',
-			description:
-				'Hi! We are a tiny development company with fully remote team working throughout Turkey, Izmir. Our main goal is to produce creative and innovative solutions.',
-			link: 'https://settleco.net',
-			image: SettleCoLogo,
-			css: 'w-1/2'
-		},
-		{
-			year: '2022 - 2022',
-			title: 'Isolation',
-			description: 'Isolation is a start page with some widgets to keep you focused.',
-			link: '',
-			image: IsolationLogo,
-			css: 'w-3/4 rounded-2xl'
-		}
-	];
-	export let r = projects.length;
-	let slicedprojects = projects.slice(0, r);
+	export let r = CONFIG.PROJECTS.length;
+	let slicedprojects = CONFIG.PROJECTS.slice(0, r);
 </script>
 
 {#each slicedprojects as projects}
