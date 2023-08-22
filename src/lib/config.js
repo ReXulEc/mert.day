@@ -72,7 +72,7 @@ const CONFIG = {
             "location": "Izmir, Turkey",
             "start": "2021",
             "end": "2025",
-            "description": "I am currently studying at Atakent Anotolian High School, a well-established educational institution that offers a wide range of education to students. I am studying in the science department. I am also studying German as a second language.",
+            "description": "I am currently studying at Atakent Anotolian High School, a well-established educational institution that offers a wide range of education to students. I am also studying German as a second language.",
             "link": ""
         }
     ],
