@@ -1,6 +1,7 @@
 import OpenAnimeMobile from './images/projects/openanime.png';
 import SettleCoLogo from './images/projects/settleco_logo.png';
 import IsolationLogo from './images/projects/isolation.png';
+import FbalmunLogo from './images/projects/fbalmun.png';
 
 import memoji1 from '$lib/images/memoji/memoji1.png';
 import memoji2 from '$lib/images/memoji/memoji3.png';
@@ -40,6 +41,14 @@ const CONFIG = {
 			link: 'https://openani.me',
 			image: OpenAnimeMobile,
 			css: 'w-4/6 top-5'
+		},
+        {
+			year: '2024 - 2024',
+			title: `FBALMUN'24`,
+			description: `FBALMUN'24 is the Second official session of Aliağa Fen Bilimleri Anatolian High School Model United Nations.`,
+			link: 'https://fbalmun.com',
+			image: FbalmunLogo,
+			css: 'w-2/3'
 		},
 		{
 			year: '2021 - 2022',

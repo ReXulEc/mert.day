@@ -11,7 +11,7 @@
 	>
 		<div class="h-full space-y-1.5 md:w-8/12 w-10/12">
 			<p class="texts-05 text-xs">{projects.year}</p>
-			<p class="text-xl">{projects.title}</p>
+			<p class="text-xl font-medium">{projects.title}</p>
 			<p class="texts-07">{projects.description}</p>
 			{#if projects.link != ''}
 				<Underline href={projects.link} text="Try it out" />

@@ -27,7 +27,7 @@
 		</section>
 		<div class="space-y-9">
 			<p class="font-medium text-[1.1rem]">Selected Projects</p>
-			<Projects r={2} />
+			<Projects r={3} />
 			<Underline text="View all projects" href="/projects" arrowstyle={'right'} />
 		</div>
 		<div class="space-y-9">
