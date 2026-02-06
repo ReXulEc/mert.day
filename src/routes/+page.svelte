@@ -5,6 +5,7 @@
 	import Education from '../lib/components/Education.svelte';
 	import Footer from '../lib/components/Footer.svelte';
 	import Meta from '../lib/components/Meta.svelte';
+    import CONFIG from '../lib/config';
 </script>
 
 <Meta title="/home" />
@@ -27,7 +28,7 @@
 		</section>
 		<div class="space-y-9">
 			<p class="font-medium text-[1.1rem]">Selected Projects</p>
-			<Projects r={3} />
+			<Projects r={CONFIG.PROJECTS_RADIUS} />
 			<Underline text="View all projects" href="/projects" arrowstyle={'right'} />
 		</div>
 		<div class="space-y-9">

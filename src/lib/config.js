@@ -2,6 +2,8 @@ import OpenAnimeMobile from './images/projects/openanime.png';
 import SettleCoLogo from './images/projects/settleco_logo.png';
 import IsolationLogo from './images/projects/isolation.png';
 import FbalmunLogo from './images/projects/fbalmun.png';
+import AbletonPatcherGUILogo from './images/projects/abletonpatchergui.png';
+import DevFestLogo from './images/projects/devfest.png';
 
 import memoji1 from '$lib/images/memoji/memoji1.png';
 import memoji2 from '$lib/images/memoji/memoji3.png';
@@ -11,62 +13,83 @@ import memoji5 from '$lib/images/memoji/memoji5.png';
 import memoji6 from '$lib/images/memoji/memoji6.png';
 
 const CONFIG = {
+    PROJECTS_RADIUS: 3,
     NAVBAR: [
-		{
-			name: 'About',
-			href: '/about'
-		},
-		{
-			name: 'Projects',
-			href: '/projects'
-		},
-		{
-			name: 'Contact',
-			href: '/contact'
-		}
-	],
+        {
+            name: 'About',
+            href: '/about'
+        },
+        {
+            name: 'Projects',
+            href: '/projects'
+        },
+        {
+            name: 'Contact',
+            href: '/contact'
+        }
+    ],
     MEMOJI: [
-        memoji1, 
-        memoji2, 
-        memoji3, 
-        memoji4, 
-        memoji5, 
+        memoji1,
+        memoji2,
+        memoji3,
+        memoji4,
+        memoji5,
         memoji6
     ],
     PROJECTS: [
-		{
-			year: '2020 - present',
-			title: 'OpenAnime',
-			description: 'OpenAnime is an open source anime platform that aims on community, security and speed. It provides some of the unique features that you will rarely see on an anime platform.',
-			link: 'https://openani.me',
-			image: OpenAnimeMobile,
-			css: 'w-4/6 top-5'
-		},
         {
-			year: '2024 - 2024',
-			title: `FBALMUN'24`,
-			description: `FBALMUN'24 is the Second official session of Aliağa Fen Bilimleri Anatolian High School Model United Nations.`,
-			link: 'https://fbalmun.com',
-			image: FbalmunLogo,
-			css: 'w-2/3'
-		},
-		{
-			year: '2021 - 2022',
-			title: 'SettleCo',
-			description: 'SettleCo is a tiny development company with fully remote team working throughout Turkey, Izmir. Our main goal is to produce creative and innovative solutions.',
-			link: 'https://settleco.net',
-			image: SettleCoLogo,
-			css: 'w-1/2'
-		},
-		{
-			year: '2022 - 2022',
-			title: 'Isolation',
-			description: 'Isolation is a start page with some widgets to keep you focused.',
-			link: '',
-			image: IsolationLogo,
-			css: 'w-3/4 rounded-2xl'
-		}
-	],
+            year: '2020 - present',
+            title: 'OpenAnime',
+            job: 'Front-end Developer',
+            description: 'OpenAnime is an open source anime platform that aims on community, security and speed. It provides some of the unique features that you will rarely see on an anime platform.',
+            link: 'https://openani.me',
+            image: OpenAnimeMobile,
+            css: 'w-4/6 top-5 hover:-translate-y-3 transition-transform duration-300'
+        },
+        {
+            year: '2025',
+            title: "DevFest'25 Izmir",
+            job: 'Staff',
+            description: 'Organized by the Google Developers Group (GDG), DevFest Izmir is the largest community-driven tech conference in Izmir and the Aegean region, bringing together passionate developers from around the globe.',
+            link: 'https://devfest.gdgizmir.org/',
+            image: DevFestLogo,
+            css: ''
+        },
+        {
+            year: '2024 - 2024',
+            title: `FBALMUN'24`,
+            job: 'Head of IT',
+            description: `FBALMUN'24 is the Second official session of Aliağa Fen Bilimleri Anatolian High School Model United Nations. The website includes a registration system, a blog and a gallery.`,
+            link: '',
+            image: FbalmunLogo,
+            css: 'w-2/3'
+        },
+        {
+            year: '2021 - 2022',
+            title: 'SettleCo',
+            job: 'Founder & Lead Developer',
+            description: 'SettleCo is a tiny development company with fully remote team working throughout Turkey, Izmir. Our main goal is to produce creative and innovative solutions.',
+            image: SettleCoLogo,
+            link: '',
+            css: 'w-1/2'
+        },
+        {
+            year: '2025',
+            title: 'Ableton Patcher GUI',
+            description: 'An Open-Souce Implementation of the R2R Ableton Modification. All Versions above Live 9 are supported.',
+            link: 'https://github.com/ReXulEc/abletonPatcherGUI',
+            image: AbletonPatcherGUILogo,
+            css: 'rounded-xl w-11/12 shadow-lg shadow-white/20'
+        },
+        {
+            year: '2022 - 2022',
+            title: 'Isolation',
+            description: 'Isolation is a start page with some widgets to keep you focused.',
+            link: '',
+            image: IsolationLogo,
+            css: 'w-3/4 rounded-2xl'
+        }
+    ],
     EDUCATION: [
         {
             "name": "Ali Kaya Middle School",
@@ -79,8 +102,8 @@ const CONFIG = {
         {
             "name": "Atakent Anotolian High School",
             "location": "Izmir, Turkey",
-            "start": "2021",
-            "end": "2025",
+            "start": "2022",
+            "end": "2026",
             "description": "I am currently studying at Atakent Anotolian High School, a well-established educational institution that offers a wide range of education to students. I am also studying German as a second language.",
             "link": ""
         }

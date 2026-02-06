@@ -1,5 +1,5 @@
 <script>
-	import CONFIG from "../config.js"
+	import CONFIG from '../config.js';
 	import Underline from '../../lib/components/Underline.svelte';
 	export let r = CONFIG.PROJECTS.length;
 	let slicedprojects = CONFIG.PROJECTS.slice(0, r);
@@ -11,7 +11,13 @@
 	>
 		<div class="h-full space-y-1.5 md:w-8/12 w-10/12">
 			<p class="texts-05 text-xs">{projects.year}</p>
-			<p class="text-xl font-medium">{projects.title}</p>
+			<div class="flex items-center space-x-4">
+				<p class="text-xl font-medium ">{projects.title}</p>
+				{#if projects.job}
+					<p class="texts-06 font-light text-base ml-2">|</p>
+					<p class="texts-06 font-light text-base ml-2"> {projects.job}</p>
+				{/if}
+			</div>
 			<p class="texts-07">{projects.description}</p>
 			{#if projects.link != ''}
 				<Underline href={projects.link} text="Try it out" />
