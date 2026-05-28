@@ -36,6 +36,7 @@ const CONFIG = {
         memoji5,
         memoji6
     ],
+    PROJECTS_MODE: 1,
     PROJECTS: [
         {
             year: '2020 - present',
@@ -47,11 +48,12 @@ const CONFIG = {
             css: 'w-4/6 top-5 hover:-translate-y-3 transition-transform duration-300'
         },
         {
-            year: '2025',
+            year: '2025 - 2025',
             title: "DevFest'25 Izmir",
             job: 'Staff',
             description: 'Organized by the Google Developers Group (GDG), DevFest Izmir is the largest community-driven tech conference in Izmir and the Aegean region, bringing together passionate developers from around the globe.',
             link: 'https://devfest.gdgizmir.org/',
+            linkText: 'Check it out',
             image: DevFestLogo,
             css: ''
         },
@@ -110,20 +112,25 @@ const CONFIG = {
     ],
     FOOTER: [
         {
-            "name": "Github",
-            "link": "https://github.com/rexulec"
+            "name": "Email",
+            "link": "mailto:business@mert.day",
+            "value": "business@mert.day"
         },
         {
-            "name": "Twitter",
-            "link": "https://twitter.com/rexulec"
+            "name": "Github",
+            "link": "https://github.com/rexulec",
+            "value": "github.com/rexulec"
         },
+
         {
             "name": "Linkedin",
-            "link": "https://www.linkedin.com/in/rexulec/"
+            "link": "https://www.linkedin.com/in/rexulec/",
+            "value": "linkedin.com/in/rexulec/"
         },
         {
             "name": "Instagram",
-            "link": "https://www.instagram.com/rexulec/"
+            "link": "https://www.instagram.com/rexulec/",
+            "value": "@rexulec"
         }
     ]
 }

@@ -10,7 +10,10 @@
 	<div class="flex justify-between">
 		<div class="flex md:flex-row flex-col md:space-x-2 md:space-y-0 space-y-1">
 			{#each CONFIG.FOOTER as footer}
+				{#if footer.name == "Email"}
+				{:else}
 				<Underline text={footer.name} href={footer.link} />
+				{/if}
 			{/each}
 		</div>
 		<div class="hidden md:flex">

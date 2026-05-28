@@ -72,7 +72,7 @@
 
 {#if isNavOpen}
 	<div
-		class="flex flex-col items-center justify-center w-full h-screen text-2xl text-white bg-[#2A2A2A] absolute top-0 left-0 z-10  space-y-3"
+		class="flex flex-col items-center justify-center w-full h-screen text-2xl text-white bg-[#2A2A2A]/70 transition-all backdrop-blur-sm absolute top-0 left-0 z-10 "
 		in:fly={{ y: 100, duration: 400 }}
 		out:fly={{ y: 100, duration: 400 }}
 	>
@@ -81,7 +81,7 @@
 				type="button"
 				role="button"
 				href={item.href}
-				class="py-3 rounded-md w-10/12 font-medium"
+				class="py-1 rounded-md w-10/12 font-medium"
 				on:click={handleNav}
 				in:fly={{ y: 100, duration: 400 }}
 				out:fly={{ y: 100, duration: 400 }}

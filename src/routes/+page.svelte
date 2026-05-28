@@ -23,7 +23,7 @@
 					interactive web experiences. I love working with modern web technologies like React, Next,
 					Svelte, and Vue, as well as using Node.js for server-side development.
 				</p>
-				<Underline href="/about" />
+				<Underline href="/about" text="Read more.." />
 			</div>
 		</section>
 		<div class="space-y-9">
