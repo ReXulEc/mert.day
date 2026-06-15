@@ -52,9 +52,17 @@
 					{/if}
 				</div>
 				<p class="texts-07">{projects.description}</p>
-				{#if projects.link != ''}
-					<Underline href={projects.link} text={projects.linkText || 'Try it out'} />
-				{/if}
+				<div class="flex items-center space-x-4 pt-2">
+					{#if projects.link != ''}
+						<Underline href={projects.link} text={projects.linkText || 'Try it out'} />
+					{/if}
+					{#if projects.mdlink}
+						<Underline
+							href="/projects/{projects.slug || projects.title.toLowerCase().replace(/ /g, '-')}"
+							text="Read Blog"
+						/>
+					{/if}
+				</div>
 			</div>
 			<div
 				class=" h-[10rem] md:w-auto w-[10rem] aspect-square bg-[#808080]/5 rounded-2xl overflow-hidden relative flex justify-center items-center mb-3 md:mb-0"
