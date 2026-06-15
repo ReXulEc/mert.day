@@ -64,6 +64,7 @@ const CONFIG = {
             description: `Quar is a lightning-fast, privacy-focused QR code scanner designed for macOS.`,
             link: 'https://github.com/ReXulEc/quar',
             image: QuarLogo,
+            ignoreLines: [6],
             mdlink: "https://raw.githubusercontent.com/ReXulEc/quar/refs/heads/main/README.md",
             css: 'w-2/3 drop-shadow-[0_0px_4px_rgba(255,255,255,0.1)] '
         },
@@ -74,6 +75,7 @@ const CONFIG = {
             link: 'https://github.com/ReXulEc/abletonPatcherGUI',
             image: AbletonPatcherGUILogo,
             mdlink: "https://raw.githubusercontent.com/ReXulEc/abletonPatcherGUI/refs/heads/main/README.md",
+            ignoreLines: [0],
             css: 'rounded-xl w-11/12 shadow-lg shadow-white/20'
         },
         {
