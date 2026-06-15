@@ -66,7 +66,7 @@ const CONFIG = {
             image: QuarLogo,
             ignoreLines: [6],
             mdlink: "https://raw.githubusercontent.com/ReXulEc/quar/refs/heads/main/README.md",
-            css: 'w-2/3 drop-shadow-[0_0px_4px_rgba(255,255,255,0.1)] '
+            css: 'w-2/3 transition-all hover:drop-shadow-[0_0px_8px_rgba(176,176,176,0.2)] drop-shadow-[0_0px_4px_rgba(176,176,176,0.1)] '
         },
         {
             year: '2025',
