@@ -4,6 +4,7 @@ import IsolationLogo from './images/projects/isolation.png';
 import FbalmunLogo from './images/projects/fbalmun.png';
 import AbletonPatcherGUILogo from './images/projects/abletonpatchergui.png';
 import DevFestLogo from './images/projects/devfest.png';
+import QuarLogo from './images/projects/quar.png';
 
 import memoji1 from '$lib/images/memoji/memoji1.png';
 import memoji2 from '$lib/images/memoji/memoji3.png';
@@ -58,6 +59,22 @@ const CONFIG = {
             css: ''
         },
         {
+            year: '2026',
+            title: `Quar`,
+            description: `Quar is a lightning-fast, privacy-focused QR code scanner designed for macOS.`,
+            link: 'https://github.com/ReXulEc/quar',
+            image: QuarLogo,
+            css: 'w-2/3 drop-shadow-[0_0px_4px_rgba(255,255,255,0.1)] '
+        },
+        {
+            year: '2025',
+            title: 'Ableton Patcher GUI',
+            description: 'An Open-Souce Implementation of the R2R Ableton Modification. All Versions above Live 9 are supported.',
+            link: 'https://github.com/ReXulEc/abletonPatcherGUI',
+            image: AbletonPatcherGUILogo,
+            css: 'rounded-xl w-11/12 shadow-lg shadow-white/20'
+        },
+        {
             year: '2024 - 2024',
             title: `FBALMUN'24`,
             job: 'Head of IT',
@@ -74,14 +91,6 @@ const CONFIG = {
             image: SettleCoLogo,
             link: '',
             css: 'w-1/2'
-        },
-        {
-            year: '2025',
-            title: 'Ableton Patcher GUI',
-            description: 'An Open-Souce Implementation of the R2R Ableton Modification. All Versions above Live 9 are supported.',
-            link: 'https://github.com/ReXulEc/abletonPatcherGUI',
-            image: AbletonPatcherGUILogo,
-            css: 'rounded-xl w-11/12 shadow-lg shadow-white/20'
         },
         {
             year: '2022 - 2022',
