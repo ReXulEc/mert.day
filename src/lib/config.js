@@ -49,13 +49,14 @@ const CONFIG = {
             css: 'w-4/6 top-5 hover:-translate-y-3 transition-transform duration-300'
         },
         {
-            year: '2025 - 2025',
+            year: '2025',
             title: "DevFest'25 Izmir",
             job: 'Staff',
             description: 'Organized by the Google Developers Group (GDG), DevFest Izmir is the largest community-driven tech conference in Izmir and the Aegean region, bringing together passionate developers from around the globe.',
             link: 'https://devfest.gdgizmir.org/',
             linkText: 'Check it out',
             image: DevFestLogo,
+            mdlink: "/md/devfest/md.md",
             css: ''
         },
         {
